@@ -18,11 +18,11 @@ REGION = 'ap-southeast-2'
 VPC_CIDR = '10.0.0.0/16'
 
 # Manual Inputs
-LOGICAL_ID_PREFIX = 'datalake'
-RESOURCE_NAME_PREFIX = 'datalake-resources'
+LOGICAL_ID_PREFIX = 'data'
+RESOURCE_NAME_PREFIX = 'dl'
 
 # Secrets Manager Inputs
-GITHUB_TOKEN = 'github-token'
+GITHUB_TOKEN = 'github-personal-access-token'
 
 # Used in Automated Outputs
 VPC_ID = 'vpc-06b64296a01d51a20'
@@ -40,7 +40,7 @@ S3_KMS_KEY = '9de1dc97-7f01-41df-b6be-72e7834954aa'
 S3_ACCESS_LOG_BUCKET = 'datalake-log-bucket-123456789'
 S3_RAW_BUCKET = 'datalake-raw-bucket-123456789'
 S3_CONFORMED_BUCKET = 'datalake-confirmed-bucket-123456789'
-S3_PURPOSE_BUILT_BUCKET = 'datalake-purpose-bucket'
+S3_PURPOSE_BUILT_BUCKET = 'datalake-purpose-bucket-123456789'
 
 
 def get_local_configuration(environment: str) -> dict:
@@ -66,7 +66,7 @@ def get_local_configuration(environment: str) -> dict:
             # This is used in resources that must be globally unique!
             # It may only contain alphanumeric characters, hyphens, and cannot contain trailing hyphens
             # E.g. unique-identifier-data-lake
-            RESOURCE_NAME_PREFIX: 'data-lake-resources',
+            RESOURCE_NAME_PREFIX: 'dl',
         },
         DEV: {
             ACCOUNT_ID: '391970746680',
