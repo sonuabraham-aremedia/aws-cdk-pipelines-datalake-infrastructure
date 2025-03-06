@@ -40,7 +40,7 @@ S3_KMS_KEY = '9de1dc97-7f01-41df-b6be-72e7834954aa'
 S3_ACCESS_LOG_BUCKET = 'datalake-log-bucket-123456789'
 S3_RAW_BUCKET = 'datalake-raw-bucket-123456789'
 S3_CONFORMED_BUCKET = 'datalake-confirmed-bucket-123456789'
-S3_PURPOSE_BUILT_BUCKET = 'datalake-purpose-bucket-123456789'
+S3_PURPOSE_BUILT_BUCKET = 'datalake-purpose-bucket'
 
 
 def get_local_configuration(environment: str) -> dict:
