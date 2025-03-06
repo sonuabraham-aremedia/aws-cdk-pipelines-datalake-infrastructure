@@ -11,36 +11,36 @@ PROD = 'Prod'
 
 # The following constants are used to map to parameter/secret paths
 ENVIRONMENT = 'environment'
+GITHUB_REPOSITORY_OWNER_NAME = 'sonuabraham-aremedia'
+GITHUB_REPOSITORY_NAME = 'aws-cdk-pipelines-datalake-infrastructure'
+ACCOUNT_ID = '391970746680'
+REGION = 'ap-southeast-2'
+VPC_CIDR = '10.0.0.0/16'
 
 # Manual Inputs
-GITHUB_REPOSITORY_OWNER_NAME = 'github_repository_owner_name'
-GITHUB_REPOSITORY_NAME = 'github_repository_name'
-ACCOUNT_ID = 'account_id'
-REGION = 'region'
-LOGICAL_ID_PREFIX = 'logical_id_prefix'
-RESOURCE_NAME_PREFIX = 'resource_name_prefix'
-VPC_CIDR = 'vpc_cidr'
+LOGICAL_ID_PREFIX = 'datalake'
+RESOURCE_NAME_PREFIX = 'datalake-resources'
 
 # Secrets Manager Inputs
-GITHUB_TOKEN = 'github_token'
+GITHUB_TOKEN = 'github-token'
 
 # Used in Automated Outputs
-VPC_ID = 'vpc_id'
-AVAILABILITY_ZONE_1 = 'availability_zone_1'
-AVAILABILITY_ZONE_2 = 'availability_zone_2'
-AVAILABILITY_ZONE_3 = 'availability_zone_3'
-SUBNET_ID_1 = 'subnet_id_1'
-SUBNET_ID_2 = 'subnet_id_2'
-SUBNET_ID_3 = 'subnet_id_3'
-ROUTE_TABLE_1 = 'route_table_1'
-ROUTE_TABLE_2 = 'route_table_2'
-ROUTE_TABLE_3 = 'route_table_3'
-SHARED_SECURITY_GROUP_ID = 'shared_security_group_id'
-S3_KMS_KEY = 's3_kms_key'
-S3_ACCESS_LOG_BUCKET = 's3_access_log_bucket'
-S3_RAW_BUCKET = 's3_raw_bucket'
-S3_CONFORMED_BUCKET = 's3_conformed_bucket'
-S3_PURPOSE_BUILT_BUCKET = 's3_purpose_built_bucket'
+VPC_ID = 'vpc-06b64296a01d51a20'
+AVAILABILITY_ZONE_1 = 'ap-southeast-2a'
+AVAILABILITY_ZONE_2 = 'ap-southeast-2b'
+AVAILABILITY_ZONE_3 = 'ap-southeast-2c'
+SUBNET_ID_1 = 'subnet-0864ac1b6479f0850'
+SUBNET_ID_2 = 'subnet-01b13de8cc975d87e'
+SUBNET_ID_3 = 'subnet-0b6237c102e0fde63'
+ROUTE_TABLE_1 = 'rtb-0f3a4dff5b170a396'
+ROUTE_TABLE_2 = 'rtb-0cd1ff7ebedc127ad'
+ROUTE_TABLE_3 = 'rtb-05bae96d06af12e48'
+SHARED_SECURITY_GROUP_ID = 'sg-0e23f2a97722d13a3'
+S3_KMS_KEY = '9de1dc97-7f01-41df-b6be-72e7834954aa'
+S3_ACCESS_LOG_BUCKET = 'datalake-log-bucket-123456789'
+S3_RAW_BUCKET = 'datalake-raw-bucket-123456789'
+S3_CONFORMED_BUCKET = 'datalake-confirmed-bucket-123456789'
+S3_PURPOSE_BUILT_BUCKET = 'datalake-purpose-bucket-123456789'
 
 
 def get_local_configuration(environment: str) -> dict:
@@ -54,34 +54,34 @@ def get_local_configuration(environment: str) -> dict:
     """
     local_mapping = {
         DEPLOYMENT: {
-            ACCOUNT_ID: '',
-            REGION: 'us-east-2',
-            GITHUB_REPOSITORY_OWNER_NAME: '',
+            ACCOUNT_ID: '391970746680',
+            REGION: 'ap-southeast-2',
+            GITHUB_REPOSITORY_OWNER_NAME: 'sonubraham-aremedia',
             # If you use GitHub / GitHub Enterprise, this will be the organization name
-            GITHUB_REPOSITORY_NAME: '',
+            GITHUB_REPOSITORY_NAME: 'aws-cdk-pipelines-datalake-infrastructure',
             # Use your forked repo here!
             # This is used in the Logical Id of CloudFormation resources
             # We recommend capital case for consistency. e.g. DataLakeCdkBlog
-            LOGICAL_ID_PREFIX: '',
+            LOGICAL_ID_PREFIX: 'DataLakeCdkBlog',
             # This is used in resources that must be globally unique!
             # It may only contain alphanumeric characters, hyphens, and cannot contain trailing hyphens
             # E.g. unique-identifier-data-lake
-            RESOURCE_NAME_PREFIX: '',
+            RESOURCE_NAME_PREFIX: 'data-lake-resources',
         },
         DEV: {
-            ACCOUNT_ID: '',
-            REGION: 'us-east-2',
-            VPC_CIDR: '10.20.0.0/24'
+            ACCOUNT_ID: '391970746680',
+            REGION: 'ap-southeast-2',
+            VPC_CIDR: '10.0.0.0/16'
         },
         TEST: {
-            ACCOUNT_ID: '',
-            REGION: 'us-east-2',
-            VPC_CIDR: '10.10.0.0/24'
+            ACCOUNT_ID: '391970746680',
+            REGION: 'ap-southeast-2',
+            VPC_CIDR: '10.0.0.0/16'
         },
         PROD: {
-            ACCOUNT_ID: '',
-            REGION: 'us-east-2',
-            VPC_CIDR: '10.0.0.0/24'
+            ACCOUNT_ID: '391970746680',
+            REGION: 'ap-southeast-2',
+            VPC_CIDR: '10.0.0.0/16'
         }
     }
 
