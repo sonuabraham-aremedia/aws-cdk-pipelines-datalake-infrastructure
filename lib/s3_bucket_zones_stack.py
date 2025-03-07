@@ -68,6 +68,10 @@ class S3BucketZonesStack(cdk.Stack):
             s3_kms_key,
         )
 
+        self.grant_s3_permissions(raw_bucket)
+        self.grant_s3_permissions(conformed_bucket)
+        self.grant_s3_permissions(purpose_built_bucket)
+
         # Stack Outputs that are programmatically synchronized
         cdk.CfnOutput(
             self,
@@ -99,6 +103,20 @@ class S3BucketZonesStack(cdk.Stack):
             value=purpose_built_bucket.bucket_name,
             export_name=mappings[S3_PURPOSE_BUILT_BUCKET]
         )
+
+    def grant_s3_permissions(self, bucket: s3.Bucket):
+        """
+        Grants the CDK deploy role permissions to access S3 objects.
+        """
+        deploy_role_arn = f"arn:aws:iam::{self.account}:role/cdk-hnb659fds-deploy-role-{self.account}-{self.region}"
+        deploy_role = iam.Role.from_role_arn(self, "CDKDeployRole", deploy_role_arn)
+
+        deploy_role.add_to_policy(iam.PolicyStatement(
+            actions=["s3:GetObject"],
+            resources=[f"{bucket.bucket_arn}/*"],
+            effect=iam.Effect.ALLOW
+        ))
+
 
     def create_kms_key(self, deployment_account_id, logical_id_prefix, resource_name_prefix) -> kms.Key:
         """
