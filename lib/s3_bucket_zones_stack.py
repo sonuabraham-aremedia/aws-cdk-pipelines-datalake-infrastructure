@@ -69,8 +69,8 @@ class S3BucketZonesStack(cdk.Stack):
         )
 
         self.grant_s3_permissions(raw_bucket)
-        self.grant_s3_permissions(conformed_bucket)
-        self.grant_s3_permissions(purpose_built_bucket)
+        #self.grant_s3_permissions(conformed_bucket)
+        #self.grant_s3_permissions(purpose_built_bucket)
 
         # Stack Outputs that are programmatically synchronized
         cdk.CfnOutput(
