@@ -74,7 +74,7 @@ def get_local_configuration(environment: str) -> dict:
             VPC_CIDR: '10.0.0.0/16'
         },
         TEST: {
-            ACCOUNT_ID: '021007710463 ',
+            ACCOUNT_ID: '021007710463',
             REGION: 'ap-southeast-2',
             VPC_CIDR: '10.0.0.0/16'
         },
