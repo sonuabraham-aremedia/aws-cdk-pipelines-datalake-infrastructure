@@ -56,7 +56,7 @@ def get_local_configuration(environment: str) -> dict:
         DEPLOYMENT: {
             ACCOUNT_ID: '391970746680',
             REGION: 'ap-southeast-2',
-            GITHUB_REPOSITORY_OWNER_NAME: 'sonubraham-aremedia',
+            GITHUB_REPOSITORY_OWNER_NAME: 'sonuabraham-aremedia',
             # If you use GitHub / GitHub Enterprise, this will be the organization name
             GITHUB_REPOSITORY_NAME: 'aws-cdk-pipelines-datalake-infrastructure',
             # Use your forked repo here!
@@ -140,7 +140,7 @@ def get_all_configurations() -> dict:
     return {
         DEPLOYMENT: {
             ENVIRONMENT: DEPLOYMENT,
-            GITHUB_TOKEN: '/DataLake/GitHubToken',
+            GITHUB_TOKEN: 'github-personal-access-token',
             **get_local_configuration(DEPLOYMENT),
         },
         DEV: get_environment_configuration(DEV),
